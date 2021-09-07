@@ -5,6 +5,7 @@ import (
 	"log"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"os"
 )
 
 func main() {
@@ -16,5 +17,6 @@ func main() {
 
 	transactionController.Route(app)
 
-	log.Fatal(app.Listen(":3000"))
+	port := os.Getenv("PORT")
+	log.Fatal(app.Listen(":" + port))
 }
