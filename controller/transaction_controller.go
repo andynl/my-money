@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"github.com/andynl/my-money/model"
 	"github.com/gofiber/fiber/v2"
 	"time"
 )
@@ -55,5 +56,9 @@ func (controller *TransactionController) Get(c *fiber.Ctx) error {
 	//return c.SendString(msg)
 
 	trxData := TransactionData{summaries, transactions}
-	return c.JSON(trxData)
+	return c.JSON(model.WebResponse{
+		Code: 200,
+		Status: "OK",
+		Data: trxData,
+	})
 }
