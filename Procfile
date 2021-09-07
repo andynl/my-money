@@ -1,1 +1,1 @@
-"web: bin/my-money-uang-ku"
+"web: bin/my-money"
