@@ -44,6 +44,7 @@ func NewTransactionController() TransactionController {
 
 func (controller *TransactionController) Route(app *fiber.App) {
 	app.Get("/api/transactions", controller.Get)
+	app.Get("/api/v2/transactions", controller.Get2)
 }
 
 func (controller *TransactionController) Get(c *fiber.Ctx) error {
@@ -55,6 +56,11 @@ func (controller *TransactionController) Get(c *fiber.Ctx) error {
 	//msg := fmt.Sprintf("limit %s - type %s", c.Query("limit"), c.Query("type"))
 	//return c.SendString(msg)
 
+	trxData := TransactionData{summaries, transactions}
+	return c.JSON(trxData)
+}
+
+func (controller *TransactionController) Get2(c *fiber.Ctx) error {
 	trxData := TransactionData{summaries, transactions}
 	return c.JSON(model.WebResponse{
 		Code: 200,

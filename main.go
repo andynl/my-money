@@ -3,11 +3,11 @@ package main
 import (
 	"github.com/andynl/my-money/controller"
 	"github.com/andynl/my-money/model"
+	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
+	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
 	"log"
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/recover"
 	"os"
 )
 
@@ -16,6 +16,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	//db, err := config.NewMysqlDatabase()
 
 	app := fiber.New()
 	app.Use(recover.New())
