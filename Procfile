@@ -1,1 +1,1 @@
-"web: bin/my-money"
+web: bin/my-money
