@@ -56,8 +56,8 @@ func (controller *TransactionController) Get(c *fiber.Ctx) error {
 	//msg := fmt.Sprintf("limit %s - type %s", c.Query("limit"), c.Query("type"))
 	//return c.SendString(msg)
 
-	trxData := TransactionData{summaries, transactions}
-	return c.JSON(trxData)
+	//trxData := TransactionData{summaries, transactions}
+	return c.JSON(transactions)
 }
 
 func (controller *TransactionController) Get2(c *fiber.Ctx) error {
