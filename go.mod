@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/andybalholm/brotli v1.0.3 // indirect
+	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/gofiber/fiber/v2 v2.18.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
