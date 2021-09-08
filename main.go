@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/andynl/my-money/config"
 	"github.com/andynl/my-money/controller"
 	"github.com/andynl/my-money/model"
 	"github.com/gofiber/fiber/v2"
@@ -18,8 +17,8 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	db, _ := config.NewMysqlDatabase()
-	print(db)
+	//db, _ := config.NewMysqlDatabase()
+	//print(db)
 
 	app := fiber.New()
 	app.Use(recover.New())
