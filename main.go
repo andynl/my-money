@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/andynl/my-money/config"
 	"github.com/andynl/my-money/controller"
 	"github.com/andynl/my-money/model"
 	"github.com/gofiber/fiber/v2"
@@ -17,7 +18,8 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	//db, err := config.NewMysqlDatabase()
+	db, _ := config.NewMysqlDatabase()
+	print(db)
 
 	app := fiber.New()
 	app.Use(recover.New())
@@ -25,9 +27,9 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(model.WebResponse{
-			Code: 200,
+			Code:   200,
 			Status: "OK",
-			Data: fiber.Map{"message": "My Money - UangKu API"},
+			Data:   fiber.Map{"message": "My Money - UangKu API"},
 		})
 	})
 
@@ -37,9 +39,9 @@ func main() {
 
 	app.Get("*", func(c *fiber.Ctx) error {
 		return c.JSON(model.WebResponse{
-			Code: 404,
+			Code:   404,
 			Status: "Failed",
-			Data: fiber.Map{"message": "Oops Error"},
+			Data:   fiber.Map{"message": "Oops Error"},
 		})
 	})
 
